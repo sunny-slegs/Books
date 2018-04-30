@@ -1,30 +1,26 @@
 'use strict';
+
 let myLibrary = [
-  {title: 'Ella Enchanted', author: 'Gail Carson Levine', pages: 150, read: true},
-  {title: 'The Catcher in the Rye', author: 'J. D. Salinger', pages: 100, read: true},
   {title: 'I Contain Multitudes', author: 'Ed Yong', pages: 175, read: false},
 ];
-
-
-
 
 function addBookToLibrary(form) {
   let title = form.title.value;
   let author = form.author.value;
   let pages = form.pages.value;
-  let read = form.read.value;
-  function Book(title, author, pages, read) {
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.read = function(read) {
-      read === true ? 'read' : 'not read yet';
-    },
-    this.info = function() {
-      return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
-    };
-  }
+  Book(title, author, pages);
 }
+
+
+function Book(title, author, pages) {
+  this.title = title,
+  this.author = author,
+  this.pages = pages,
+  this.info = function() {
+    return `${this.title} by ${this.author}, ${this.pages} pages`;
+  };
+}
+
 //Inputs info from myLibrary array to DOM after page has loaded
 window.onload = function() {
     
